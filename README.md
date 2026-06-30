@@ -1,63 +1,200 @@
 # CivicPulse
 
-AI-powered hyperlocal infrastructure reporter for Dehradun, India.
+AI-powered hyperlocal infrastructure reporting platform for smarter cities.
 
-## Stack
+CivicPulse enables citizens to report civic infrastructure issues using AI-powered image analysis while helping local governments prioritize repairs through community verification and predictive infrastructure insights.
 
-- **Frontend:** React + Vite + Tailwind CSS + React-Leaflet
-- **Backend:** FastAPI + SQLAlchemy + SQLite
-- **AI:** Claude Sonnet Vision API
+---
 
 ## Features
 
-- AI issue photo analysis with auto-filled report forms
-- Live community map with color-coded pins
-- Government dashboard with SLA timers (Critical 4h, High 24h, Medium 72h, Low 7d)
-- Gamification: +10 XP per report, +5 XP on resolve, badges, weekly leaderboard
-- Rate limiting on all API endpoints (60/min default, 10/min on auth)
-- reCAPTCHA on login & signup pages
+### Citizen Portal
 
-## Setup
+- AI-powered issue detection from uploaded photos
+- Automatic issue classification and department routing
+- Dynamic GPS location detection
+- Duplicate report detection
+- Community verification (support existing reports instead of creating duplicates)
+- Evidence gallery for supported reports
+- Complaint history
+- XP, badges and leaderboard
+- Pulse mascot-guided user experience
+
+---
+
+### Government Dashboard
+
+- Live issue management
+- Status updates
+- SLA tracking
+- Department filtering
+- Community Verified reports
+- Predictive Infrastructure Risk (Beta)
+- Analytics dashboard
+
+---
+
+## Technology Stack
+
+### Frontend
+
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- React Leaflet
+
+### Backend
+
+- FastAPI
+- SQLAlchemy
+- SQLite
+- JWT Authentication
+
+### AI
+
+- Google Gemini Vision API
+
+### Cloud
+
+- Google Cloud Run
+- Google Cloud Storage
+
+---
+
+## AI Features
+
+- Vision AI issue identification
+- Severity estimation
+- Automatic department assignment
+- Invalid image detection ("No issue found")
+- Duplicate issue detection using:
+  - AI category matching
+  - GPS proximity
+- Community-supported evidence aggregation
+
+---
+
+## Project Structure
+
+```
+CivicPulse/
+│
+├── frontend/
+├── backend/
+├── assets/
+└── README.md
+```
+
+---
+
+## Local Setup
+
+### Clone
+
+```bash
+git clone https://github.com/YOUR_USERNAME/CivicPulse.git
+cd CivicPulse
+```
+
+---
 
 ### Backend
 
 ```bash
 cd backend
+
 python -m venv .venv
-.venv\Scripts\activate   # Windows
+
+# Windows
+.venv\Scripts\activate
+
+# Linux / macOS
+source .venv/bin/activate
+
 pip install -r requirements.txt
-copy .env.example .env     # Add ANTHROPIC_API_KEY and optional RECAPTCHA keys
-uvicorn app.main:app --reload --port 8000
+
+copy .env.example .env
+
+# Add your environment variables
+
+uvicorn app.main:app --reload
 ```
+
+---
 
 ### Frontend
 
 ```bash
 cd frontend
+
 npm install
+
 npm run dev
 ```
 
-Open http://localhost:5173
+Frontend:
 
-## Dehradun Departments
+```
+http://localhost:5173
+```
 
-- PWD (Public Works)
-- Jal Sansthan (Water)
-- UPCL (Power)
-- Nagar Nigam (Municipal)
+Backend:
 
-## Demo Government Login
+```
+http://localhost:8000
+```
 
-Use **Demo Official Login** on the Gov tab, or `POST /api/auth/demo-official`.
+---
 
 ## Environment Variables
 
-| Variable | Description |
-|----------|-------------|
-| `ANTHROPIC_API_KEY` | Claude Vision API key |
-| `RECAPTCHA_SECRET_KEY` | Google reCAPTCHA secret |
-| `RECAPTCHA_SITE_KEY` | Google reCAPTCHA site key |
-| `SECRET_KEY` | JWT signing key |
+Create a `.env` file inside the backend folder.
 
-Without reCAPTCHA keys, captcha is bypassed in development mode.
+Required:
+
+```
+GEMINI_API_KEY=
+SECRET_KEY=
+DATABASE_URL=
+```
+
+Optional:
+
+```
+RECAPTCHA_SITE_KEY=
+RECAPTCHA_SECRET_KEY=
+```
+
+---
+
+## Departments
+
+- PWD
+- Nagar Nigam
+- Jal Sansthan
+- UPCL
+- Traffic Police
+
+---
+
+## Demo Highlights
+
+- AI-powered infrastructure issue reporting
+- Community verification to reduce duplicate complaints
+- Government analytics dashboard
+- Predictive Infrastructure Risk (Beta)
+- Gamified citizen participation with Pulse mascot
+
+---
+
+## Built With
+
+- Google Gemini API
+- Google Cloud
+- FastAPI
+- React
+- Tailwind CSS
+- SQLAlchemy
+- SQLite

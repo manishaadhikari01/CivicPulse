@@ -1,4 +1,4 @@
-uploads/
+# uploads/
 backend/.env
 backend/.env.example
 backend/civicpulse.db
@@ -28,6 +28,7 @@ dist/
 
 # Database
 *.db
+!backend/civicpulse.db
 *.sqlite
 *.sqlite3
 
