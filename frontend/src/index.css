@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #004ac6;
+  --color-primary-container: #2563eb;
+  --color-secondary: #006c49;
+  --color-surface: #f8f9ff;
+  --color-surface-container: #e5eeff;
+  --color-on-surface: #0b1c30;
+  --color-outline: #737686;
+  --color-error: #ba1a1a;
+  --font-sans: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  background: var(--color-surface);
+  color: var(--color-on-surface);
+  -webkit-font-smoothing: antialiased;
+}
+
+#root {
+  min-height: 100dvh;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+
+.ai-pulse {
+  box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
+}
+
+@keyframes mascotBubbleIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mascot-bubble-in {
+  animation: mascotBubbleIn 360ms ease-out both;
+}
+
